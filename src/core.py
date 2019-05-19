@@ -498,8 +498,10 @@ def warn_the_good_guys(subject, alert):
 
 
 def send_mail(subject, text):
-    mail(read_config("ALERT_USER_EMAIL"), subject, text)
-
+    email_list = read_config("ALERT_USER_EMAIL")
+    for email in email_list:
+        mail(email, subject, text)
+        
 # mail function preping to send
 
 
